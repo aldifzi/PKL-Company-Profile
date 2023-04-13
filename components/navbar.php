@@ -15,7 +15,7 @@
                         while ($row = mysqli_fetch_array($query)) {
 
                         ?>
-              <a href="<?php echo htmlentities($row['Description']) ?>"><span class="mai-logo-facebook-f"></span></a>
+              <a target="_blank" href="<?php echo htmlentities($row['Description']) ?>"><span class="mai-logo-facebook-f"></span></a>
               <?php } ?>
               <?php
                         $pagetype = 'yt';
@@ -23,7 +23,7 @@
                         while ($row = mysqli_fetch_array($query)) {
 
                         ?>
-              <a href="<?php echo htmlentities($row['Description']) ?>"><span class="mai-logo-youtube"></span></a>
+              <a target="_blank" href="<?php echo htmlentities($row['Description']) ?>"><span class="mai-logo-youtube"></span></a>
               <?php } ?>
               <?php
                         $pagetype = 'ig';
@@ -31,7 +31,7 @@
                         while ($row = mysqli_fetch_array($query)) {
 
                         ?>
-              <a href="<?php echo htmlentities($row['Description']) ?>"><span class="mai-logo-instagram"></span></a>
+              <a target="_blank" href="<?php echo htmlentities($row['Description']) ?>"><span class="mai-logo-instagram"></span></a>
               <?php } ?>
             </div>
           </div>

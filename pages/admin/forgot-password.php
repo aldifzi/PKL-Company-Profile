@@ -1,32 +1,27 @@
 <?php
- session_start();
-//Database Configuration File
+session_start();
+error_reporting(0);
 include('../../assets/connection.php');
-//error_reporting(0);
-if(isset($_POST['login']))
-  {
- 
-    // Getting username/ email and password
-     $uname=$_POST['username'];
-    $password=md5($_POST['password']);
-    // Fetch data from database on the basis of username/email and password
-$sql =mysqli_query($con,"SELECT AdminUserName,AdminEmailId,AdminPassword,userType FROM tbladmin WHERE (AdminUserName='$uname' && AdminPassword='$password')");
- $num=mysqli_fetch_array($sql);
-if($num>0)
-{
 
-$_SESSION['login']=$_POST['username'];
-$_SESSION['utype']=$num['userType'];
-    echo "<script type='text/javascript'> document.location = 'dashboard'; </script>";
-  }else{
-echo "<script>alert('Invalid Details');</script>";
-  }
- 
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = md5($_POST['newpassword']);
+    $query = mysqli_query($con, "select id from tbladmin where  AdminEmailId='$email' and AdminUserName='$username' ");
+
+    $ret = mysqli_num_rows($query);
+    if ($ret > 0) {
+        $query1 = mysqli_query($con, "update tbladmin set AdminPassword='$password'  where  AdminEmailId='$email' && AdminUserName='$username' ");
+        if ($query1) {
+            echo "<script>alert('Password successfully changed');</script>";
+            echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+        }
+    } else {
+
+        echo "<script>alert('Invalid Details. Please try again.');</script>";
+    }
 }
-if(!isset($_POST['login']))
-{
-    
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,9 +38,7 @@ if(!isset($_POST['login']))
 
     <!-- Custom fonts for this template-->
     <link href="../../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="../../assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -65,33 +58,42 @@ if(!isset($_POST['login']))
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6 d-none d-lg-block bg-login-imae"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user" method="POST">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                id="exampleInputEmail" name="username" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" name="password" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
+                                    <form class="user" method="post">
+
+                                        <div class="form-group ">
+                                            <div class="col-xs-12">
+                                                <input class="form-control" type="text" required="" name="username" placeholder="Username" autocomplete="off">
                                             </div>
                                         </div>
-                                        <button href="dashboard" name="login" class="btn btn-primary btn-user btn-block" >
-                                            Login
-                                        </button>
-                                        <hr>
+                                        <div class="form-group ">
+                                            <div class="col-xs-12">
+                                                <input class="form-control" type="text"  name="email" placeholder="Email" autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <input type="password" class="form-control" id="userpassword" name="confirmpassword" placeholder="Confirm Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <input type="password" class="form-control" id="userpassword" name="newpassword" placeholder="New Password">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group account-btn text-center m-t-10">
+                                            <div class="col-xs-12">
+                                                <button class="btn w-md btn-bordered btn-danger waves-effect waves-light" type="submit" name="submit">Reset</button>
+                                            </div>
+                                        </div>
+
                                     </form>
                                     <hr>
                                     <div class="text-center">

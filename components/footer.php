@@ -41,10 +41,30 @@ while($row=mysqli_fetch_array($query))
         </div>
         <div class="col-md-6 text-right">
           <div class="sosmed-button">
-            <a href="#"><span class="mai-logo-facebook-f"></span></a>
-            <a href="#"><span class="mai-logo-twitter"></span></a>
-            <a href="#"><span class="mai-logo-youtube"></span></a>
-            <a href="#"><span class="mai-logo-linkedin"></span></a>
+          <?php
+                        $pagetype = 'fb';
+                        $query = mysqli_query($con, "select PageTitle,Description from tblpages where PageName='$pagetype'");
+                        while ($row = mysqli_fetch_array($query)) {
+
+                        ?>
+            <a target="_blank" href="<?php echo htmlentities($row['Description']) ?>"><span class="mai-logo-facebook-f"></span></a>
+            <?php } ?>
+            <?php
+                        $pagetype = 'yt';
+                        $query = mysqli_query($con, "select PageTitle,Description from tblpages where PageName='$pagetype'");
+                        while ($row = mysqli_fetch_array($query)) {
+
+                        ?>
+            <a target="_blank" href="<?php echo htmlentities($row['Description']) ?>"><span class="mai-logo-youtube"></span></a>
+            <?php } ?>
+            <?php
+                        $pagetype = 'ig';
+                        $query = mysqli_query($con, "select PageTitle,Description from tblpages where PageName='$pagetype'");
+                        while ($row = mysqli_fetch_array($query)) {
+
+                        ?>
+            <a target="_blank" href="<?php echo htmlentities($row['Description']) ?>"><span class="mai-logo-instagram"></span></a>
+            <?php } ?>
           </div>
         </div>
       </div>
