@@ -147,17 +147,6 @@ if ($result->num_rows > 0) {
           </div>
 
           <div class="col-lg-4">
-            <div class="widget">
-              <div class="widget-box">
-                <h3 class="widget-title">Search</h3>
-                <div class="divider"></div>
-                <form action="#" class="search-form">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
-                    <button type="submit" class="btn"><span class="icon mai-search"></span></button>
-                  </div>
-                </form>
-              </div>
             </div>
 
             <div class="widget-box">

@@ -41,8 +41,14 @@
 
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <a href="index.html" class="navbar-brand">Reve<span class="text-primary">Tive.</span></a>
+      <?php
+                        $pagetype = 'logo';
+                        $query = mysqli_query($con, "select PageTitle,Description from tblpages where PageName='$pagetype'");
+                        while ($row = mysqli_fetch_array($query)) {
 
+                        ?>
+        <a href="index" class="navbar-brand"><?php echo ($row['PageTitle']) ?></span></a>
+<?php }?>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

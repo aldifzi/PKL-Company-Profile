@@ -27,6 +27,8 @@ $page = 'contact';
 
   <link rel="stylesheet" href="../assets/css/theme.css">
 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ7BPby09zybIIFcJHdiE4_-I4fiyWzjw" type="text/javascript"></script>
+
 </head>
 <body>
 

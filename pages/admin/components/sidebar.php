@@ -96,6 +96,12 @@
             </div>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="setting">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Setting</span>
+            </a>
+        </li>
         
 
         <!-- Divider -->

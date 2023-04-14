@@ -70,57 +70,26 @@ while($row=mysqli_fetch_array($query))
         </div>
 
         <div class="owl-carousel team-carousel mt-5">
+        <?php
+          $pagetype = 'aboutus';
+          $query = mysqli_query($con, "SELECT * from team ORDER BY id ASC");
+          while ($row = mysqli_fetch_array($query)) {
+          ?>
           <div class="team-wrap">
             <div class="team-profile">
-              <img src="../assets/img/teams/team_1.jpg" alt="">
+              <img src="../assets/img/teams/<?= $row['gambar'] ?>" alt="">
             </div>
             <div class="team-content">
-              <h5>Walter White</h5>
-              <div class="text-sm fg-grey">Chief Executive Officer</div>
+              <h5><?= $row['nama'] ?></h5>
+              <div class="text-sm fg-grey"><?= $row['detail'] ?></div>
 
-              <div class="social-button">
-                <a href="#"><span class="mai-logo-facebook-messenger"></span></a>
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-mail"></span></a>
-              </div>
+             
             </div>
           </div>
-
-          <div class="team-wrap">
-            <div class="team-profile">
-              <img src="../assets/img/teams/team_2.jpg" alt="">
-            </div>
-            <div class="team-content">
-              <h5>Sarah Johanson</h5>
-              <div class="text-sm fg-grey">Chief Technology Officer</div>
-
-              <div class="social-button">
-                <a href="#"><span class="mai-logo-facebook-messenger"></span></a>
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-mail"></span></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="team-wrap">
-            <div class="team-profile">
-              <img src="../assets/img/teams/team_3.jpg" alt="">
-            </div>
-            <div class="team-content">
-              <h5>Anna Anderson</h5>
-              <div class="text-sm fg-grey">Product Manager</div>
-
-              <div class="social-button">
-                <a href="#"><span class="mai-logo-facebook-messenger"></span></a>
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-mail"></span></a>
-              </div>
-            </div>
-          </div>
-
+          <?php }?>
         </div>
       </div> <!-- .container -->
-    </div> <!-- .page-section -->
+    </div>
 
     
   </main>

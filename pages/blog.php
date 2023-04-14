@@ -74,7 +74,7 @@ while ($row=mysqli_fetch_array($query)) {
                   </div>
                   <div class="body">
                     <div class="post-title"><a href="blog-single.html"><?php echo htmlentities($row['posttitle']);?></a></div>
-                    <div class="post-excerpt"><?= ($row['postdetails']) ?></div>
+                    <div class="post-excerpt"><?php custom_echo ($row['postdetails'], 80);  ?></div>
                   </div>
                   <div class="footer">
                     <a href="blog-single?nid=<?php echo htmlentities($row['pid'])?>">Read More <span class="mai-chevron-forward text-sm"></span></a>
@@ -84,21 +84,28 @@ while ($row=mysqli_fetch_array($query)) {
               <?php } ?>
               <div class="col-12 my-5">
                 <nav aria-label="Page Navigation">
-                  <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item active" aria-current="page">
-                      <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">Next</a>
-                    </li>
-                  </ul>
+                <ul class="pagination justify-content-center mb-4">
+            <li class="page-item"><a href="?pageno=1" class="page-link">First</a></li>
+            <li class="<?php if ($pageno <= 1) {
+                          echo 'disabled';
+                        } ?> page-item">
+              <a href="<?php if ($pageno <= 1) {
+                          echo '#';
+                        } else {
+                          echo "?pageno=" . ($pageno - 1);
+                        } ?>" class="page-link">Prev</a>
+            </li>
+            <li class="<?php if ($pageno >= $total_pages) {
+                          echo 'disabled';
+                        } ?> page-item">
+              <a href="<?php if ($pageno >= $total_pages) {
+                          echo '#';
+                        } else {
+                          echo "?pageno=" . ($pageno + 1);
+                        } ?> " class="page-link">Next</a>
+            </li>
+            <li class="page-item"><a href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
+          </ul>
                 </nav>
               </div>
               
@@ -109,7 +116,20 @@ while ($row=mysqli_fetch_array($query)) {
       </div> <!-- .container -->
     </div> <!-- .page-section -->
   </main>
-
+<?php 
+function custom_echo($x, $length)
+{
+  if(strlen($x)<=$length)
+  {
+    echo $x;
+  }
+  else
+  {
+    $y=substr($x,0,$length) . '...';
+    echo $y;
+  }
+}
+?>
 
   <?php include('../components/footer.php');?>
 

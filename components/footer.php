@@ -2,7 +2,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-3 py-3">
-          <h3>Reve<span class="fg-primary">Tive.</span></h3>
+        <?php
+                        $pagetype = 'logo';
+                        $query = mysqli_query($con, "select PageTitle,Description from tblpages where PageName='$pagetype'");
+                        while ($row = mysqli_fetch_array($query)) {
+
+                        ?>
+          <h3><?php echo ($row['PageTitle']) ?></span></h3>
+          <?php }?>
         </div>
         <div class="col-lg-3 py-3">
           <h5>Contact Information</h5>

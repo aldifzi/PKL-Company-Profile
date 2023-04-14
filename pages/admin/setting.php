@@ -1,40 +1,20 @@
 <?php
 session_start();
-$active = 'master';
-require_once '../../assets/connection.php';
+include('../../assets/connection.php');
+error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 } else {
+    if (isset($_POST['update'])) {
+        $pagetype = 'logo';
+        $pagetitle = $_POST['pagetitle'];
+        $pagedetails = $_POST['pagedescription'];
 
-    if (isset($_POST['Submit'])) {
-        $detail = mysqli_real_escape_string($con, $_POST['detail']);
-        $nama = mysqli_real_escape_string($con, $_POST['nama']);
-        $filename = $_FILES['gambar']['name'];
-
-        // CEK DATA TIDAK BOLEH KOSONG
-        // JIKA SEMUANYA TIDAK KOSONG
-        $filetmpname = $_FILES['gambar']['tmp_name'];
-
-        // FOLDER DIMANA GAMBAR AKAN DI SIMPAN
-        $folder = '../../assets/img/teams/';
-        // GAMBAR DI SIMPAN KE DALAM FOLDER
-        move_uploaded_file($filetmpname, $folder . $filename);
-
-        // MEMASUKAN DATA DATA + NAMA GAMBAR KE DALAM DATABASE
-        $result = mysqli_query($con, "INSERT INTO team(detail,nama,gambar) VALUES('$detail','$nama', '$filename')");
-
-        if ($result) {
-            echo "
-    <script>
-        alert('Berhasil Tambah Data Team');
-        document.location='team';    
-    </script>";
+        $query = mysqli_query($con, "update tblpages set PageTitle='$pagetitle',Description='$pagedetails' where PageName='$pagetype' ");
+        if ($query) {
+            $msg = "Social Media link  page successfully updated ";
         } else {
-            echo "
-    <script>
-        alert('GagalTambah Data Team');
-        document.location='team';    
-    </script>";
+            $error = "Something went wrong . Please try again.";
         }
     }
 ?>
@@ -75,53 +55,57 @@ if (strlen($_SESSION['login']) == 0) {
 
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Add Team</h1>
+                            <h1 class="h3 mb-0 text-gray-800">Setting</h1>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" name="form1" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="nama">Name</label>
-                                <input type="text" class="form-control" id="nama" placeholder="" autocomplete="off" required="required" name="nama">
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="detail">Detail</label>
-                                    <input type="text" class="form-control" id="detail" placeholder="" autocomplete="off" required="required" name="detail">
-                                </div>
+                        <?php
+                        $pagetype = 'logo';
+                        $query = mysqli_query($con, "select PageTitle,Description from tblpages where PageName='$pagetype'");
+                        while ($row = mysqli_fetch_array($query)) {
+
+                        ?>
+
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="p-6">
+                                        <div class="">
+                                            <form name="aboutus" method="post">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="card-box">
+                                                            <h4 class="m-b-30 m-t-0 header-title"><b>Logo</b></h4>
+                                                            <textarea id="summernote" name="pagetitle" required><?php echo htmlentities($row['PageTitle']) ?></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        <?php }
+                                } ?>
+
+                                        <button type="submit" name="update" class="btn btn-success waves-effect my-3 waves-light">Update</button>
+
+                                            </form>
+                                        </div>
+                                    </div> <!-- end p-20 -->
+                                </div> <!-- end col -->
                             </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="foto">Foto</label>
-                                <input type="file" class="form-control-file" id="gambar" autocomplete="off" required="required" name="gambar">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-sm btn-primary" name="Submit" value="Add">Tambah</button>
-                        <button type="reset" class="btn btn-sm btn-danger" onclick="return confirm('apakah anda yakin?')">Batal</button>
-                        <a href="team" class="btn btn-sm btn-secondary">Kembali</a>
-                    </div>
-                    </form>
+
                 </div>
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- /.container-fluid -->
+            <!-- End of Main Content -->
 
-        </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
                 </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+            </footer>
+            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -154,7 +138,6 @@ if (strlen($_SESSION['login']) == 0) {
         </div>
 
         <!-- Bootstrap core JavaScript-->
-        <script src="../../assets/vendor/jquery/jquery.min.js"></script>
         <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
@@ -172,11 +155,22 @@ if (strlen($_SESSION['login']) == 0) {
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/6f2ba42180.js" crossorigin="anonymous"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#summernote").summernote({
+                    placeholder: "Write your content here",
+                    height: 200,
+                });
+            });
 
+            function showContent() {
+                document.getElementById("myContent").innerHTML =
+                    $("#summernote").summernote("code");
+            }
+        </script>
 
     </body>
-<?php } ?>
