@@ -74,7 +74,7 @@ while ($row=mysqli_fetch_array($query)) {
                   </div>
                   <div class="body">
                     <div class="post-title"><a href="blog-single.html"><?php echo htmlentities($row['posttitle']);?></a></div>
-                    <div class="post-excerpt"><?php echo htmlentities($row['postdetails']);?></div>
+                    <div class="post-excerpt"><?= ($row['postdetails']) ?></div>
                   </div>
                   <div class="footer">
                     <a href="blog-single?nid=<?php echo htmlentities($row['pid'])?>">Read More <span class="mai-chevron-forward text-sm"></span></a>

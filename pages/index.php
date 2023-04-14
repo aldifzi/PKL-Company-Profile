@@ -207,102 +207,7 @@ while($row=mysqli_fetch_array($query))
     </div> 
 
     <!-- Testimonials -->
-    <div class="page-section">
-      <div class="container">
-        <div class="owl-carousel testimonial-carousel">
-          <div class="card-testimonial">
-            <div class="content">
-              The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph
-            </div>
-            <div class="author">
-              <div class="avatar">
-                <img src="../assets/img/person/person_1.jpg" alt="">
-              </div>
-              <div class="d-inline-block ml-2">
-                <div class="author-name">Sam Watson</div>
-                <div class="author-info">CEO - Mosh Elite Ltd.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-testimonial">
-            <div class="content">
-              The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph
-            </div>
-            <div class="author">
-              <div class="avatar">
-                <img src="../assets/img/person/person_2.jpg" alt="">
-              </div>
-              <div class="d-inline-block ml-2">
-                <div class="author-name">Edinson Alfa</div>
-                <div class="author-info">CEO - Mosh Elite Ltd.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-testimonial">
-            <div class="content">
-              The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph
-            </div>
-            <div class="author">
-              <div class="avatar">
-                <img src="../assets/img/person/person_3.jpg" alt="">
-              </div>
-              <div class="d-inline-block ml-2">
-                <div class="author-name">May Halloway</div>
-                <div class="author-info">CEO - Mosh Elite Ltd.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-testimonial">
-            <div class="content">
-              The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph
-            </div>
-            <div class="author">
-              <div class="avatar">
-                <img src="../assets/img/person/person_1.jpg" alt="">
-              </div>
-              <div class="d-inline-block ml-2">
-                <div class="author-name">Sam Watson</div>
-                <div class="author-info">CEO - Mosh Elite Ltd.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-testimonial">
-            <div class="content">
-              The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph
-            </div>
-            <div class="author">
-              <div class="avatar">
-                <img src="../assets/img/person/person_2.jpg" alt="">
-              </div>
-              <div class="d-inline-block ml-2">
-                <div class="author-name">Edinson Alfa</div>
-                <div class="author-info">CEO - Mosh Elite Ltd.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-testimonial">
-            <div class="content">
-              The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph
-            </div>
-            <div class="author">
-              <div class="avatar">
-                <img src="../assets/img/person/person_3.jpg" alt="">
-              </div>
-              <div class="d-inline-block ml-2">
-                <div class="author-name">May Halloway</div>
-                <div class="author-info">CEO - Mosh Elite Ltd.</div>
-              </div>
-            </div>
-          </div>
-
-        </div> <!-- .row -->
-      </div> <!-- .container -->
-    </div> <!-- .page-section -->
+    
 
     <div class="page-section">
       <div class="container">
@@ -312,62 +217,25 @@ while($row=mysqli_fetch_array($query))
         </div>
 
         <div class="row my-5 card-blog-row">
-          <div class="col-lg-3 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single">What is Business Management?</a></div>
-              </div>
-              <div class="footer">
-                <a href="blog-single">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="../assets/img/person/person_1.jpg" alt="">
-                </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single">What is Business Management?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="../assets/img/person/person_2.jpg" alt="">
-                </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single">What is Business Management?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
-          </div>
+        <?php 
+     if (isset($_GET['pageno'])) {
+            $pageno = $_GET['pageno'];
+        } else {
+            $pageno = 1;
+        }
+        $no_of_records_per_page = 4;
+        $offset = ($pageno-1) * $no_of_records_per_page;
+
+
+        $total_pages_sql = "SELECT COUNT(*) FROM tblposts";
+        $result = mysqli_query($con,$total_pages_sql);
+        $total_rows = mysqli_fetch_array($result)[0];
+        $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+
+$query=mysqli_query($con,"select tblposts.id as pid,tblposts.PostTitle as posttitle,tblposts.name,tblposts.PostImage,tblcategory.CategoryName as category,tblcategory.id as cid,tblsubcategory.Subcategory as subcategory,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=1 order by tblposts.id desc  LIMIT $offset, $no_of_records_per_page");
+while ($row=mysqli_fetch_array($query)) {
+?>
           <div class="col-lg-3 py-3">
             <div class="card-blog">
               <div class="header">
@@ -375,19 +243,20 @@ while($row=mysqli_fetch_array($query))
                   <img src="../assets/img/person/person_3.jpg" alt="">
                 </div>
                 <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
+                  <div class="post-author"><?php echo htmlentities($row['name']);?></div>
+                  <a href="#" class="post-date"><?php echo htmlentities($row['postingdate']);?>20</a>
                 </div>
               </div>
               <div class="body">
-                <div class="post-title"><a href="blog-single">What is Business Management?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
+                <div class="post-title"><a href="blog-single"><?php echo htmlentities($row['posttitle']);?></a></div>
+                <div class="post-excerpt"><?= ($row['postdetails']) ?></div>
               </div>
               <div class="footer">
-                <a href="blog-single">Read More <span class="mai-chevron-forward text-sm"></span></a>
+                <a href="blog-single?nid=<?php echo htmlentities($row['pid']);?>">Read More <span class="mai-chevron-forward text-sm"></span></a>
               </div>
             </div>
           </div>
+          <?php } ?>
         </div>
 
         <div class="text-center">
