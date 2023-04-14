@@ -10,9 +10,16 @@ include('../assets/connection.php');
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
 
-  <meta name="copyright" content="MACode ID, https://macodeid.com/">
+  <meta name="title" content="company profile">
+<meta name="description" content="A company profile website is a digital platform that provides an overview of a company's history, mission, values, products or services, achievements,">
+<meta name="keywords" content="company profile, website, marketing">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="author" content="aldi">
+
 
   <title>Company Profile</title>
 
@@ -27,6 +34,8 @@ include('../assets/connection.php');
   <link rel="stylesheet" href="../assets/vendor/fancybox/css/jquery.fancybox.css">
 
   <link rel="stylesheet" href="../assets/css/theme.css">
+
+  
 
 </head>
 

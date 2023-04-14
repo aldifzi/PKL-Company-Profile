@@ -9,11 +9,16 @@ $page = 'service';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="title" content="company profile">
+<meta name="description" content="A company profile website is a digital platform that provides an overview of a company's history, mission, values, products or services, achievements,">
+<meta name="keywords" content="company profile, website, marketing">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="author" content="aldi">
 
-  <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-  <title>Revetive - Free Business Corporate Template By MACode ID</title>
+  <title>Service</title>
 
   <link rel="stylesheet" href="../assets/css/bootstrap.css">
   

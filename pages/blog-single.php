@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
   $query = mysqli_query($con, "select tblposts.PostTitle as posttitle,tblposts.PostImage,tblcategory.CategoryName as category,tblcategory.id as cid,tblsubcategory.Subcategory as subcategory,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url,tblposts.postedBy,tblposts.lastUpdatedBy,tblposts.UpdationDate from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.id='$pid'");
   while ($row = mysqli_fetch_array($query)) {
   ?>
-    <title>Revetive - Free Business Corporate Template By MACode ID</title>
+    <title><?php echo htmlentities($row['posttitle']); ?></title>
 
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
 

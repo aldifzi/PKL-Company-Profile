@@ -44,7 +44,7 @@ while($row=mysqli_fetch_array($query))
 
       <div class="row mt-4">
         <div class="col-md-6">
-          <p>Copyright 2020. This template designed by <a href="https://macodeid.com">MACode ID</a></p>
+          <p>Copyright 2023. This website designed with <a href="index">❤️</a></p>
         </div>
         <div class="col-md-6 text-right">
           <div class="sosmed-button">
